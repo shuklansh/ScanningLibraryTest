@@ -32,27 +32,29 @@
         android:onClick="openCamera"
         android:text="Camera" />
 
-    <Button
-        android:id="@+id/cameraPerm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="92dp"
-        android:layout_marginBottom="259dp"
-        android:text="grant cam permission" />
 
-    <Button
-        android:id="@+id/storgperm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="163dp"
-        android:text="grant storage permission" />
+
+
 
 
 </RelativeLayout>
+<!--<Button-->
+<!--android:id="@+id/cameraPerm"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_alignParentStart="true"-->
+<!--android:layout_alignParentBottom="true"-->
+<!--android:layout_centerVertical="true"-->
+<!--android:layout_marginStart="92dp"-->
+<!--android:layout_marginBottom="259dp"-->
+<!--android:text="grant cam permission" />-->
+<!--<Button-->
+<!--android:id="@+id/storgperm"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_alignParentStart="true"-->
+<!--android:layout_alignParentBottom="true"-->
+<!--android:layout_centerVertical="true"-->
+<!--android:layout_marginStart="76dp"-->
+<!--android:layout_marginBottom="163dp"-->
+<!--android:text="grant storage permission" />-->
