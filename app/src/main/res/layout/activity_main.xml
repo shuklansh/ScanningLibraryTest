@@ -15,22 +15,44 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="240dp"
-        android:layout_marginBottom="420dp"
+        android:layout_marginStart="273dp"
+        android:layout_marginBottom="422dp"
         android:onClick="openGallery"
         android:text="Gallery" />
 
     <Button
-        android:onClick="openCamera"
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="49dp"
         android:layout_marginBottom="422dp"
+        android:onClick="openCamera"
         android:text="Camera" />
+
+    <Button
+        android:id="@+id/cameraPerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginBottom="259dp"
+        android:text="grant cam permission" />
+
+    <Button
+        android:id="@+id/storgperm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="163dp"
+        android:text="grant storage permission" />
 
 
 </RelativeLayout>

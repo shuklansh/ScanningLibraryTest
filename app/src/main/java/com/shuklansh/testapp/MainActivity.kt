@@ -1,5 +1,6 @@
 package com.shuklansh.testapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -10,6 +11,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -23,24 +25,45 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var galleryButton : Button
     lateinit var cameraButton : Button
+
+    lateinit var camperm : Button
+    lateinit var strgperm : Button
+
     lateinit var view : View
 
     val CAMERA_RQ = 102
+    val STORAGE = 101
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         galleryButton = findViewById(R.id.gallery)
         cameraButton = findViewById(R.id.camera)
+
+        camperm = findViewById(R.id.cameraPerm)
+        strgperm = findViewById(R.id.storgperm)
+
+        camperm.setOnClickListener{
+            checkForPermissionCamera(android.Manifest.permission.CAMERA, name = "camera", CAMERA_RQ)
+        }
+
+        strgperm.setOnClickListener{
+            checkForPermissionCamera(android.Manifest.permission.READ_EXTERNAL_STORAGE, name = "storage", STORAGE)
+
+        }
+
         galleryButton.setOnClickListener{
             openGallery()
         }
 
         cameraButton.setOnClickListener{
-            checkForPermissionCamera(android.Manifest.permission.CAMERA, name = "camera", CAMERA_RQ)
+
+            openCamera()
             //openCamera()
         }
+
 
 
     }
@@ -94,7 +117,7 @@ class MainActivity : AppCompatActivity() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             when{
                ContextCompat.checkSelfPermission(applicationContext,permission) == PackageManager.PERMISSION_GRANTED->{
-                   openCamera()
+                   Toast.makeText(applicationContext,"$name can be used", Toast.LENGTH_SHORT).show()
                }
                 shouldShowRequestPermissionRationale(permission) -> showDialog(permission,name,requestCode)
 
@@ -127,8 +150,8 @@ class MainActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
 
         builder.apply {
-            setMessage("grant permission for $name")
-            setTitle("Camera Permission")
+            setMessage("Please grant permission for $name")
+            setTitle("$name Permission")
             setPositiveButton("OK"){dialog,which->
                 ActivityCompat.requestPermissions(this@MainActivity, arrayOf(permission),requestCode)
             }
