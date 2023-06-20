@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var galleryButton : Button
     lateinit var cameraButton : Button
 
-    //lateinit var camperm : Button
-    //lateinit var strgperm : Button
+    lateinit var camperm : Button
+    lateinit var strgperm : Button
 
     lateinit var view : View
 
@@ -42,28 +42,27 @@ class MainActivity : AppCompatActivity() {
         galleryButton = findViewById(R.id.gallery)
         cameraButton = findViewById(R.id.camera)
 
-        //camperm = findViewById(R.id.cameraPerm)
-        //strgperm = findViewById(R.id.storgperm)
+        camperm = findViewById(R.id.cameraPerm)
+        strgperm = findViewById(R.id.storgperm)
 
-//
 
-//        camperm.setOnClickListener{
-//            checkForPermissionCamera(android.Manifest.permission.CAMERA, name = "camera", CAMERA_RQ)
-//        }
 
-//        strgperm.setOnClickListener{
-//            checkForPermissionCamera(android.Manifest.permission.READ_EXTERNAL_STORAGE, name = "storage", STORAGE)
-//
-//        }
+        camperm.setOnClickListener{
+            checkForPermissionCamera(android.Manifest.permission.CAMERA, name = "camera", CAMERA_RQ)
+        }
+
+        strgperm.setOnClickListener{
+            checkForPermissionCamera(android.Manifest.permission.READ_EXTERNAL_STORAGE, name = "storage", STORAGE)
+
+        }
 
         galleryButton.setOnClickListener{
             openGallery()
         }
 
         cameraButton.setOnClickListener{
-            checkForPermissionCamera(android.Manifest.permission.CAMERA, name = "camera", CAMERA_RQ)
-
-            //openCamera()
+            //checkForPermissionCamera(android.Manifest.permission.CAMERA, name = "camera", CAMERA_RQ)
+            openCamera()
         }
 
 
@@ -119,8 +118,7 @@ class MainActivity : AppCompatActivity() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             when{
                ContextCompat.checkSelfPermission(applicationContext,permission) == PackageManager.PERMISSION_GRANTED->{
-                   openCamera()
-                   //Toast.makeText(applicationContext,"$name can be used", Toast.LENGTH_SHORT).show()
+                   Toast.makeText(applicationContext,"$name can be used", Toast.LENGTH_SHORT).show()
                }
                 shouldShowRequestPermissionRationale(permission) -> showDialog(permission,name,requestCode)
 
